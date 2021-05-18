@@ -1,0 +1,212 @@
+---
+title: "Final_Project_Analysis"
+author: "Fauzan Isnaini"
+date: "4/28/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+# Install packages and Import libraries
+
+```{r}
+install.packages("rjson")
+install.packages("wordcloud")
+install.packages("RColorBrewer")
+install.packages("effsize")
+install.packages("rstatix")
+```
+```{r}
+library(dplyr)
+library("rjson")
+library(tidyverse)
+library(jsonlite)
+library("textcat")
+library("stringr")
+library(wordcloud)
+library(RColorBrewer)
+library(tidytext)
+library(effsize)
+library(rstatix)
+```
+
+
+
+# 1. Telegram 2020
+
+## Load the json file downloaded from OSoMe
+```{r}
+json_file <- "telegram_2020"
+json_file_contents <- readLines(json_file)
+json_file_contents <- paste(json_file_contents, collapse = ",")
+json_file_contents <- paste(c("[", json_file_contents, "]"), collapse = "")
+new_json <- fromJSON(json_file_contents)
+my_data <- as_tibble(new_json)
+```
+
+## Filter English tweets and sample 394 tweets
+```{r}
+telegram_2020 <- my_data %>% mutate(new_lan = textcat(text)) %>% filter(new_lan == "english") %>% select(text) %>% sample_n(394, replace = FALSE)
+```
+
+## Export to csv for data cleaning and LDA in Python
+```{r}
+write.csv(telegram_2020,"telegram_2020.csv",row.names=FALSE)
+```
+
+
+# 2. Telegram 2021
+
+## Load the json file downloaded from OSoMe
+```{r}
+json_file <- "telegram_2021"
+json_file_contents <- readLines(json_file)
+json_file_contents <- paste(json_file_contents, collapse = ",")
+json_file_contents <- paste(c("[", json_file_contents, "]"), collapse = "")
+new_json <- fromJSON(json_file_contents)
+my_data <- as_tibble(new_json)
+```
+
+## Filter English tweets and sample 394 tweets. This code will take about 10 minutes
+```{r}
+telegram_2021 <- my_data %>% mutate(new_lan = textcat(text)) %>% filter(new_lan == "english") %>% filter(str_detect(created_at, "Jan")) %>% select(text) %>% sample_n(394, replace = FALSE)
+```
+
+## Export to csv for data cleaning and LDA in Python
+```{r}
+write.csv(telegram_2021,"telegram_2021.csv",row.names=FALSE)
+```
+
+# 3. Whatsapp 2020
+
+## Load the json file downloaded from OSoMe
+```{r}
+json_file <- "whatsapp_2020"
+json_file_contents <- readLines(json_file)
+json_file_contents <- paste(json_file_contents, collapse = ",")
+json_file_contents <- paste(c("[", json_file_contents, "]"), collapse = "")
+new_json <- fromJSON(json_file_contents)
+my_data <- as_tibble(new_json)
+```
+
+## Filter English tweets and sample 394 tweets. This code will take about 10 minutes
+```{r}
+whatsapp_2020 <- my_data %>% mutate(new_lan = textcat(text)) %>% filter(new_lan == "english") %>% select(text) %>% sample_n(394, replace = FALSE)
+```
+
+## Export to csv for data cleaning and LDA in Python
+```{r}
+write.csv(whatsapp_2020,"whatsapp_2020.csv",row.names=FALSE)
+```
+
+# 4. Whatsapp 2021
+
+## Load the json file downloaded from OSoMe
+```{r}
+json_file <- "whatsapp_2021"
+json_file_contents <- readLines(json_file)
+json_file_contents <- paste(json_file_contents, collapse = ",")
+json_file_contents <- paste(c("[", json_file_contents, "]"), collapse = "")
+new_json <- fromJSON(json_file_contents)
+my_data <- as_tibble(new_json)
+```
+
+## Filter English tweets and sample 394 tweets. This code will take about 10 minutes
+```{r}
+whatsapp_2021 <- my_data %>% sample_n(5000, replace = FALSE) %>% mutate(new_lan = textcat(text)) %>% filter(new_lan == "english") %>% select(text) %>% sample_n(394, replace = FALSE)
+```
+
+## Export to csv for data cleaning and LDA in Python
+```{r}
+write.csv(whatsapp_2021,"whatsapp_2021.csv",row.names=FALSE)
+```
+
+# 5. Telegram Feature
+
+## Load the json file downloaded from OSoMe
+```{r}
+json_file <- "telegram_feature"
+json_file_contents <- readLines(json_file)
+json_file_contents <- paste(json_file_contents, collapse = ",")
+json_file_contents <- paste(c("[", json_file_contents, "]"), collapse = "")
+new_json <- fromJSON(json_file_contents)
+my_data <- as_tibble(new_json)
+```
+
+## Filter English tweets and sample 394 tweets. This code will take about 10 minutes
+```{r}
+telegram_feature <- my_data %>% mutate(new_lan = textcat(text)) %>% filter(new_lan == "english") %>% select(text) %>% sample_n(394, replace = FALSE)
+```
+
+## Export to csv for data cleaning and LDA in Python
+```{r}
+write.csv(telegram_feature,"telegram_feature.csv",row.names=FALSE)
+```
+
+# 6. Whatsapp Feature
+
+## Load the json file downloaded from OSoMe
+```{r}
+json_file <- "whatsapp_feature"
+json_file_contents <- readLines(json_file)
+json_file_contents <- paste(json_file_contents, collapse = ",")
+json_file_contents <- paste(c("[", json_file_contents, "]"), collapse = "")
+new_json <- fromJSON(json_file_contents)
+my_data <- as_tibble(new_json)
+```
+
+## Filter English tweets and sample 394 tweets. This code will take about 10 minutes
+```{r}
+whatsapp_feature <- my_data %>% mutate(new_lan = textcat(text)) %>% filter(new_lan == "english") %>% select(text) %>% sample_n(394, replace = FALSE)
+```
+
+## Export to csv for data cleaning and LDA in Python
+```{r}
+write.csv(whatsapp_feature,"whatsapp_feature.csv",row.names=FALSE)
+```
+
+# 7. Telegram Privacy
+
+## Load the json file downloaded from OSoMe
+```{r}
+json_file <- "telegram_privacy"
+json_file_contents <- readLines(json_file)
+json_file_contents <- paste(json_file_contents, collapse = ",")
+json_file_contents <- paste(c("[", json_file_contents, "]"), collapse = "")
+new_json <- fromJSON(json_file_contents)
+my_data <- as_tibble(new_json)
+```
+
+## Filter English tweets and sample 394 tweets. This code will take about 10 minutes
+```{r}
+telegram_privacy <- my_data %>% mutate(new_lan = textcat(text)) %>% filter(new_lan == "english") %>% select(text) %>% sample_n(394, replace = FALSE)
+```
+
+## Export to csv for data cleaning and LDA in Python
+```{r}
+write.csv(telegram_privacy,"telegram_privacy.csv",row.names=FALSE)
+```
+
+# 8. Whatsapp Privacy
+
+## Load the json file downloaded from OSoMe
+```{r}
+json_file <- "whatsapp_privacy"
+json_file_contents <- readLines(json_file)
+json_file_contents <- paste(json_file_contents, collapse = ",")
+json_file_contents <- paste(c("[", json_file_contents, "]"), collapse = "")
+new_json <- fromJSON(json_file_contents)
+my_data <- as_tibble(new_json)
+```
+
+## Filter English tweets and sample 394 tweets. This code will take about 10 minutes
+```{r}
+whatsapp_privacy <- my_data %>% sample_n(5000, replace = FALSE) %>% mutate(new_lan = textcat(text)) %>% filter(new_lan == "english") %>% select(text) %>% sample_n(394, replace = FALSE)
+```
+
+## Export to csv for data cleaning and LDA in Python
+```{r}
+write.csv(whatsapp_privacy,"whatsapp_privacy.csv",row.names=FALSE)
+```

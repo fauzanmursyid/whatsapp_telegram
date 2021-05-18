@@ -1,0 +1,422 @@
+---
+title: "Final Exam"
+author: "Fauzan Isnaini"
+date: "4/27/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Install packages and Import libraries
+
+```{r}
+#install.packages("rjson")
+#install.packages("wordcloud")
+#install.packages("RColorBrewer")
+#install.packages("effsize")
+#install.packages("rstatix")
+```
+```{r}
+library(dplyr)
+library("rjson")
+library(tidyverse)
+library(jsonlite)
+library("textcat")
+library("stringr")
+library(wordcloud)
+library(RColorBrewer)
+library(tidytext)
+library(effsize)
+library(rstatix)
+```
+
+# 1. Telegram 2020
+
+## Import cleaned data from Python 
+```{r}
+sentiment_telegram_2020 <- read_csv("telegram_2020_sentiment.csv")
+sentiment_telegram_2020 <- sentiment_telegram_2020 %>% mutate_all(funs(gsub("rt", "", .)))
+```
+
+## Generate wordcloud
+```{r}
+tweets_words <-  sentiment_telegram_2020 %>%
+  select(tweets_cleaned) %>%
+  unnest_tokens(word, tweets_cleaned)
+words <- tweets_words %>% count(word, sort=TRUE)
+set.seed(1234)
+wordcloud(words = words$word, freq = words$n, min.freq = 1,max.words=200, random.order=FALSE, colors=brewer.pal(8, "Dark2"))
+```
+
+## Descriptive Statistics
+```{r}
+sentiment_telegram_2020 <- sentiment_telegram_2020 %>% mutate(compound_sentiment = as.numeric(compound_sentiment))
+sentiment_telegram_2020 %>% summarise(sentiment_mean = mean(compound_sentiment),
+                                          sentiment_median = median(compound_sentiment),
+                                          sentiment_min = min(compound_sentiment),
+                                          sentiment_max = max(compound_sentiment),
+                                          sentiment_sd = sd(compound_sentiment))
+
+```
+
+# 2. Telegram 2021
+
+## Import cleaned data from Python 
+```{r}
+sentiment_telegram_2021 <- read_csv("telegram_2021_sentiment.csv")
+sentiment_telegram_2021 <- sentiment_telegram_2021 %>% mutate_all(funs(gsub("rt", "", .)))
+```
+
+## Generate wordcloud
+```{r}
+tweets_words <-  sentiment_telegram_2021 %>%
+  select(tweets_cleaned) %>%
+  unnest_tokens(word, tweets_cleaned)
+words <- tweets_words %>% count(word, sort=TRUE)
+set.seed(1234)
+wordcloud(words = words$word, freq = words$n, min.freq = 1,max.words=200, random.order=FALSE, colors=brewer.pal(8, "Dark2"))
+```
+
+## Descriptive Statistics
+```{r}
+sentiment_telegram_2021 <- sentiment_telegram_2021 %>% mutate(compound_sentiment = as.numeric(compound_sentiment))
+sentiment_telegram_2021 %>% summarise(sentiment_mean = mean(compound_sentiment),
+                                          sentiment_median = median(compound_sentiment),
+                                          sentiment_min = min(compound_sentiment),
+                                          sentiment_max = max(compound_sentiment),
+                                          sentiment_sd = sd(compound_sentiment))
+
+```
+
+# 3. Whatsapp 2020
+
+## Import cleaned data from Python 
+```{r}
+sentiment_whatsapp_2020 <- read_csv("whatsapp_2020_sentiment.csv")
+sentiment_whatsapp_2020 <- sentiment_whatsapp_2020 %>% mutate_all(funs(gsub("rt", "", .)))
+```
+
+## Generate wordcloud
+```{r}
+tweets_words <-  sentiment_whatsapp_2020 %>%
+  select(tweets_cleaned) %>%
+  unnest_tokens(word, tweets_cleaned)
+words <- tweets_words %>% count(word, sort=TRUE)
+set.seed(1234)
+wordcloud(words = words$word, freq = words$n, min.freq = 1,max.words=200, random.order=FALSE, colors=brewer.pal(8, "Dark2"))
+```
+
+## Descriptive Statistics
+```{r}
+sentiment_whatsapp_2020 <- sentiment_whatsapp_2020 %>% mutate(compound_sentiment = as.numeric(compound_sentiment))
+sentiment_whatsapp_2020 %>% summarise(sentiment_mean = mean(compound_sentiment),
+                                          sentiment_median = median(compound_sentiment),
+                                          sentiment_min = min(compound_sentiment),
+                                          sentiment_max = max(compound_sentiment),
+                                          sentiment_sd = sd(compound_sentiment))
+```
+
+# 4. Whatsapp 2021
+
+## Import cleaned data from Python 
+```{r}
+sentiment_whatsapp_2021 <- read_csv("whatsapp_2021_sentiment.csv")
+sentiment_whatsapp_2021 <- sentiment_whatsapp_2021 %>% mutate_all(funs(gsub("rt", "", .)))
+```
+
+## Generate wordcloud
+```{r}
+tweets_words <-  sentiment_whatsapp_2021 %>%
+  select(tweets_cleaned) %>%
+  unnest_tokens(word, tweets_cleaned)
+words <- tweets_words %>% count(word, sort=TRUE)
+set.seed(1234)
+wordcloud(words = words$word, freq = words$n, min.freq = 1,max.words=200, random.order=FALSE, colors=brewer.pal(8, "Dark2"))
+```
+
+## Descriptive Statistics
+```{r}
+sentiment_whatsapp_2021 <- sentiment_whatsapp_2021 %>% mutate(compound_sentiment = as.numeric(compound_sentiment))
+sentiment_whatsapp_2021 %>% summarise(sentiment_mean = mean(compound_sentiment),
+                                          sentiment_median = median(compound_sentiment),
+                                          sentiment_min = min(compound_sentiment),
+                                          sentiment_max = max(compound_sentiment),
+                                          sentiment_sd = sd(compound_sentiment))
+
+```
+
+# 5. Telegram Feature
+
+## Import cleaned data from Python 
+```{r}
+sentiment_telegram_feature <- read_csv("telegram_feature_sentiment.csv")
+sentiment_telegram_feature <- sentiment_telegram_feature %>% mutate_all(funs(gsub("rt", "", .)))
+```
+
+## Generate wordcloud
+```{r}
+tweets_words <-  sentiment_telegram_feature %>%
+  select(tweets_cleaned) %>%
+  unnest_tokens(word, tweets_cleaned)
+words <- tweets_words %>% count(word, sort=TRUE)
+set.seed(1234)
+wordcloud(words = words$word, freq = words$n, min.freq = 1,max.words=200, random.order=FALSE, colors=brewer.pal(8, "Dark2"))
+```
+
+## Descriptive Statistics
+```{r}
+sentiment_telegram_feature <- sentiment_telegram_feature %>% mutate(compound_sentiment = as.numeric(compound_sentiment))
+sentiment_telegram_feature %>% summarise(sentiment_mean = mean(compound_sentiment),
+                                          sentiment_median = median(compound_sentiment),
+                                          sentiment_min = min(compound_sentiment),
+                                          sentiment_max = max(compound_sentiment),
+                                          sentiment_sd = sd(compound_sentiment))
+```
+
+
+# 6. Whatsapp Feature
+
+## Import cleaned data from Python 
+```{r}
+sentiment_whatsapp_feature <- read_csv("whatsapp_feature_sentiment.csv")
+sentiment_whatsapp_feature <- sentiment_whatsapp_feature %>% mutate_all(funs(gsub("rt", "", .)))
+```
+
+## Generate wordcloud
+```{r}
+tweets_words <-  sentiment_whatsapp_feature %>%
+  select(tweets_cleaned) %>%
+  unnest_tokens(word, tweets_cleaned)
+words <- tweets_words %>% count(word, sort=TRUE)
+set.seed(1234)
+wordcloud(words = words$word, freq = words$n, min.freq = 1,max.words=200, random.order=FALSE, colors=brewer.pal(8, "Dark2"))
+```
+
+## Descriptive Statistics
+```{r}
+sentiment_whatsapp_feature <- sentiment_whatsapp_feature %>% mutate(compound_sentiment = as.numeric(compound_sentiment))
+sentiment_whatsapp_feature %>% summarise(sentiment_mean = mean(compound_sentiment),
+                                          sentiment_median = median(compound_sentiment),
+                                          sentiment_min = min(compound_sentiment),
+                                          sentiment_max = max(compound_sentiment),
+                                          sentiment_sd = sd(compound_sentiment))
+```
+
+
+# 7. Telegram Privacy
+
+## Import cleaned data from Python 
+```{r}
+sentiment_telegram_privacy <- read_csv("telegram_privacy_sentiment.csv")
+sentiment_telegram_privacy <- sentiment_telegram_privacy %>% mutate_all(funs(gsub("rt", "", .)))
+```
+
+## Generate wordcloud
+```{r}
+tweets_words <-  sentiment_telegram_privacy %>%
+  select(tweets_cleaned) %>%
+  unnest_tokens(word, tweets_cleaned)
+words <- tweets_words %>% count(word, sort=TRUE)
+set.seed(1234)
+wordcloud(words = words$word, freq = words$n, min.freq = 1,max.words=200, random.order=FALSE, colors=brewer.pal(8, "Dark2"))
+```
+
+## Descriptive Statistics
+```{r}
+sentiment_telegram_privacy <- sentiment_telegram_privacy %>% mutate(compound_sentiment = as.numeric(compound_sentiment))
+sentiment_telegram_privacy %>% summarise(sentiment_mean = mean(compound_sentiment),
+                                          sentiment_median = median(compound_sentiment),
+                                          sentiment_min = min(compound_sentiment),
+                                          sentiment_max = max(compound_sentiment),
+                                          sentiment_sd = sd(compound_sentiment))
+```
+
+
+# 8. Whatsapp Privacy
+
+## Import cleaned data from Python 
+```{r}
+sentiment_whatsapp_privacy <- read_csv("whatsapp_privacy_sentiment.csv")
+sentiment_whatsapp_privacy <- sentiment_whatsapp_privacy %>% mutate_all(funs(gsub("rt", "", .)))
+```
+
+## Generate wordcloud
+```{r}
+tweets_words <-  sentiment_whatsapp_privacy %>%
+  select(tweets_cleaned) %>%
+  unnest_tokens(word, tweets_cleaned)
+words <- tweets_words %>% count(word, sort=TRUE)
+set.seed(1234)
+wordcloud(words = words$word, freq = words$n, min.freq = 1,max.words=200, random.order=FALSE, colors=brewer.pal(8, "Dark2"))
+```
+
+## Descriptive Statistics
+```{r}
+sentiment_whatsapp_privacy <- sentiment_whatsapp_privacy %>% mutate(compound_sentiment = as.numeric(compound_sentiment))
+sentiment_whatsapp_privacy %>% summarise(sentiment_mean = mean(compound_sentiment),
+                                          sentiment_median = median(compound_sentiment),
+                                          sentiment_min = min(compound_sentiment),
+                                          sentiment_max = max(compound_sentiment),
+                                          sentiment_sd = sd(compound_sentiment))
+```
+
+
+# Exploratory Analyses
+
+## 1. Boxplot and Histogram of Whatsapp December 2020 VS Whatsapp January 2021
+
+```{r}
+sentiment_whatsapp_2020 <- sentiment_whatsapp_2020 %>% mutate(year="2020")
+sentiment_whatsapp_2021 <- sentiment_whatsapp_2021 %>% mutate(year="2021")
+whatsapp_2020_2021 <- bind_rows(sentiment_whatsapp_2020, sentiment_whatsapp_2021)
+whatsapp_2020_2021 %>% ggplot(aes(x=year, y=compound_sentiment)) + geom_boxplot()
+```
+
+```{r}
+ggplot(sentiment_whatsapp_2020, aes(x=compound_sentiment)) + geom_histogram(binwidth=0.1)
+```
+
+```{r}
+ggplot(sentiment_whatsapp_2021, aes(x=compound_sentiment)) + geom_histogram(binwidth=0.1)
+```
+
+## 2. Boxplot and Histogram of Telegram December 2020 VS Telegram January 2021
+
+
+```{r}
+sentiment_telegram_2020 <- sentiment_telegram_2020 %>% mutate(year="2020")
+sentiment_telegram_2021 <- sentiment_telegram_2021 %>% mutate(year="2021")
+telegram_2020_2021 <- bind_rows(sentiment_telegram_2020, sentiment_telegram_2021)
+telegram_2020_2021 %>% ggplot(aes(x=year, y=compound_sentiment)) + geom_boxplot()
+```
+
+```{r}
+ggplot(sentiment_telegram_2020, aes(x=compound_sentiment)) + geom_histogram(binwidth=0.1)
+```
+
+```{r}
+ggplot(sentiment_telegram_2021, aes(x=compound_sentiment)) + geom_histogram(binwidth=0.1)
+```
+
+## 3. Boxplot and Histogram of Whatsapp Privacy VS Telegram Privacy
+
+
+```{r}
+sentiment_whatsapp_privacy <- sentiment_whatsapp_privacy %>% mutate(apps="whatsapp")
+sentiment_telegram_privacy <- sentiment_telegram_privacy %>% mutate(apps="telegram")
+telegram_whatsapp_privacy <- bind_rows(sentiment_whatsapp_privacy, sentiment_telegram_privacy)
+telegram_whatsapp_privacy %>% ggplot(aes(x=apps, y=compound_sentiment)) + geom_boxplot()
+```
+
+
+```{r}
+ggplot(sentiment_whatsapp_privacy, aes(x=compound_sentiment)) + geom_histogram(binwidth=0.1)
+```
+
+```{r}
+ggplot(sentiment_telegram_privacy, aes(x=compound_sentiment)) + geom_histogram(binwidth=0.1)
+```
+
+## 4. Boxplot and Histogram of Whatsapp Feature VS Telegram Feature
+
+```{r}
+sentiment_whatsapp_feature <- sentiment_whatsapp_feature %>% mutate(apps="whatsapp")
+sentiment_telegram_feature <- sentiment_telegram_feature %>% mutate(apps="telegram")
+telegram_whatsapp_feature <- bind_rows(sentiment_whatsapp_feature, sentiment_telegram_feature)
+telegram_whatsapp_feature %>% ggplot(aes(x=apps, y=compound_sentiment)) + geom_boxplot()
+```
+
+
+```{r}
+ggplot(sentiment_whatsapp_feature, aes(x=compound_sentiment)) + geom_histogram(binwidth=0.1)
+```
+
+```{r}
+ggplot(sentiment_telegram_feature, aes(x=compound_sentiment)) + geom_histogram(binwidth=0.1)
+```
+
+
+## 5. Boxplot and Histogram of Whatsapp VS Telegram (January 2021) 
+
+
+```{r}
+sentiment_telegram_2021 <- sentiment_telegram_2021 %>% mutate(apps="telegram")
+sentiment_whatsapp_2021 <- sentiment_whatsapp_2021 %>% mutate(apps="whatsapp")
+whatsapp_telegram <- bind_rows(sentiment_telegram_2021, sentiment_whatsapp_2021)
+whatsapp_telegram %>% ggplot(aes(x=apps, y=compound_sentiment)) + geom_boxplot()
+```
+
+
+```{r}
+ggplot(sentiment_whatsapp_2021, aes(x=compound_sentiment)) + geom_histogram(binwidth=0.1)
+```
+
+```{r}
+ggplot(sentiment_telegram_2021, aes(x=compound_sentiment)) + geom_histogram(binwidth=0.1)
+```
+
+
+# Inferential Statistics
+
+## 1. Whatsapp 2021 VS Telegram 2021
+
+```{r}
+whatsapp = sentiment_whatsapp_2021 %>% pull(compound_sentiment)
+telegram = sentiment_telegram_2021 %>% pull(compound_sentiment)
+t.test(whatsapp, telegram, var.equal=T)
+```
+```{r}
+whatsapp_telegram %>% cohens_d(compound_sentiment ~ apps, var.equal = FALSE)
+```
+
+
+## 2. Whatsapp Privacy VS Telegram Privacy
+
+
+```{r}
+whatsapp = sentiment_whatsapp_privacy %>% pull(compound_sentiment)
+telegram = sentiment_telegram_privacy %>% pull(compound_sentiment)
+t.test(whatsapp, telegram, var.equal=T)
+```
+```{r}
+telegram_whatsapp_privacy %>% cohens_d(compound_sentiment ~ apps, var.equal = FALSE)
+```
+
+
+## 3. Whatsapp Feature vs Telegram Feature
+
+
+```{r}
+whatsapp = sentiment_whatsapp_feature %>% pull(compound_sentiment)
+telegram = sentiment_telegram_feature %>% pull(compound_sentiment)
+t.test(whatsapp, telegram, var.equal=T)
+```
+```{r}
+telegram_whatsapp_feature %>% cohens_d(compound_sentiment ~ apps, var.equal = FALSE)
+```
+
+## 4. Whatsapp 2020 vs Whatsapp 2021
+
+
+```{r}
+wa_2020 = sentiment_whatsapp_2020 %>% pull(compound_sentiment)
+wa_2021 = sentiment_whatsapp_2021 %>% pull(compound_sentiment)
+t.test(wa_2020, wa_2021, var.equal=T)
+```
+```{r}
+whatsapp_2020_2021 %>% cohens_d(compound_sentiment ~ year, var.equal = FALSE)
+```
+
+## 5. Telegram 2020 vs Telegram 2021
+
+
+```{r}
+tele_2020 = sentiment_telegram_2020 %>% pull(compound_sentiment)
+tele_2021 = sentiment_telegram_2021 %>% pull(compound_sentiment)
+t.test(tele_2020, tele_2021, var.equal=T)
+```
+```{r}
+telegram_2020_2021 %>% cohens_d(compound_sentiment ~ year, var.equal = FALSE)
+```

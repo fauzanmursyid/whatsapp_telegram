@@ -1,0 +1,178 @@
+Data for #Telegram #Feature:
+{
+  "job_id": "ad5c9160-ff6a-4e21-8e62-952d55b4b1e8",
+  "query_params": {
+    "_job_end": "2021-04-27T13:09:56.330968",
+    "_job_start": "2021-04-27T13:02:25.649214",
+    "email": "faisna@iu.edu",
+    "end": "2021-01-31T23:59",
+    "label": "",
+    "output": "tweet-content",
+    "q": "#telegram,#feature",
+    "qtype": "meme",
+    "remote_ip": [
+      "68.45.64.189"
+    ],
+    "start": "2021-01-01T00:01",
+    "tweets_per_file": 1000000
+  },
+  "result_url": "https://tavern.osome.iu.edu/jobs/2021-04-27/ad5c9160-ff6a-4e21-8e62-952d55b4b1e8/",
+  "status_url": "https://tavern.osome.iu.edu/jobs/2021-04-27/ad5c9160-ff6a-4e21-8e62-952d55b4b1e8/output.log"
+}
+
+
+Data for #Telegram in January 2021
+
+{
+  "job_id": "e9b295db-8934-4f4a-93f1-4123d7320776",
+  "query_params": {
+    "_job_end": "2021-04-27T13:09:56.567517",
+    "_job_start": "2021-04-27T12:55:01.710823",
+    "email": "faisna@iu.edu",
+    "end": "2021-01-31T23:59",
+    "label": "",
+    "output": "tweet-content",
+    "q": "#telegram",
+    "qtype": "meme",
+    "remote_ip": [
+      "68.45.64.189"
+    ],
+    "start": "2021-01-01T00:01",
+    "tweets_per_file": 1000000
+  },
+  "result_url": "https://tavern.osome.iu.edu/jobs/2021-04-27/e9b295db-8934-4f4a-93f1-4123d7320776/",
+  "status_url": "https://tavern.osome.iu.edu/jobs/2021-04-27/e9b295db-8934-4f4a-93f1-4123d7320776/output.log"
+}
+
+Data for #telegram #privacy:
+
+{
+  "job_id": "8c13ab68-cd94-4d83-a9be-2106fd2860e6",
+  "query_params": {
+    "_job_end": "2021-04-27T13:09:57.962723",
+    "_job_start": "2021-04-27T13:00:29.740223",
+    "email": "faisna@iu.edu",
+    "end": "2021-01-31T23:59",
+    "label": "",
+    "output": "tweet-content",
+    "q": "#telegram,#privacy",
+    "qtype": "meme",
+    "remote_ip": [
+      "68.45.64.189"
+    ],
+    "start": "2021-01-01T00:01",
+    "tweets_per_file": 1000000
+  },
+  "result_url": "https://tavern.osome.iu.edu/jobs/2021-04-27/8c13ab68-cd94-4d83-a9be-2106fd2860e6/",
+  "status_url": "https://tavern.osome.iu.edu/jobs/2021-04-27/8c13ab68-cd94-4d83-a9be-2106fd2860e6/output.log"
+}
+
+Data for #whatsapp #feature:
+{
+  "job_id": "b6fbc174-b684-4021-b87d-d64a9a96745c",
+  "query_params": {
+    "_job_end": "2021-04-27T13:18:18.946904",
+    "_job_start": "2021-04-27T13:03:04.790036",
+    "email": "faisna@iu.edu",
+    "end": "2021-01-31T23:59",
+    "label": "",
+    "output": "tweet-content",
+    "q": "#whatsapp,#feature",
+    "qtype": "meme",
+    "remote_ip": [
+      "68.45.64.189"
+    ],
+    "start": "2021-01-01T00:01",
+    "tweets_per_file": 1000000
+  },
+  "result_url": "https://tavern.osome.iu.edu/jobs/2021-04-27/b6fbc174-b684-4021-b87d-d64a9a96745c/",
+  "status_url": "https://tavern.osome.iu.edu/jobs/2021-04-27/b6fbc174-b684-4021-b87d-d64a9a96745c/output.log"
+}
+
+Data for #whatsapp in January 2021:
+{
+  "job_id": "f8939de4-c3a5-430e-b53b-875db9df7621",
+  "query_params": {
+    "_job_end": "2021-04-27T13:18:18.831205",
+    "_job_start": "2021-04-27T12:55:44.190364",
+    "email": "faisna@iu.edu",
+    "end": "2021-01-31T23:59",
+    "label": "",
+    "output": "tweet-content",
+    "q": "#whatsapp",
+    "qtype": "meme",
+    "remote_ip": [
+      "68.45.64.189"
+    ],
+    "start": "2021-01-01T00:01",
+    "tweets_per_file": 1000000
+  },
+  "result_url": "https://tavern.osome.iu.edu/jobs/2021-04-27/f8939de4-c3a5-430e-b53b-875db9df7621/",
+  "status_url": "https://tavern.osome.iu.edu/jobs/2021-04-27/f8939de4-c3a5-430e-b53b-875db9df7621/output.log"
+}
+
+Data for #whatsapp #privacy:
+{
+  "job_id": "86a77344-fb40-494f-b6b7-d8db1af01776",
+  "query_params": {
+    "_job_end": "2021-04-27T13:18:20.070777",
+    "_job_start": "2021-04-27T13:01:14.783037",
+    "email": "faisna@iu.edu",
+    "end": "2021-01-31T23:59",
+    "label": "",
+    "output": "tweet-content",
+    "q": "#whatsapp,#privacy",
+    "qtype": "meme",
+    "remote_ip": [
+      "68.45.64.189"
+    ],
+    "start": "2021-01-01T00:01",
+    "tweets_per_file": 1000000
+  },
+  "result_url": "https://tavern.osome.iu.edu/jobs/2021-04-27/86a77344-fb40-494f-b6b7-d8db1af01776/",
+  "status_url": "https://tavern.osome.iu.edu/jobs/2021-04-27/86a77344-fb40-494f-b6b7-d8db1af01776/output.log"
+}
+
+Data for #telegram in December 2020:
+{
+  "job_id": "4648001e-0b95-427a-af4a-b1bb2f240e79",
+  "query_params": {
+    "_job_end": "2021-04-26T22:24:12.981903",
+    "_job_start": "2021-04-26T22:18:48.198330",
+    "email": "faisna@iu.edu",
+    "end": "2020-12-31T23:59",
+    "label": "",
+    "output": "tweet-content",
+    "q": "#telegram",
+    "qtype": "meme",
+    "remote_ip": [
+      "68.45.64.189"
+    ],
+    "start": "2020-12-01T00:01",
+    "tweets_per_file": 1000000
+  },
+  "result_url": "https://tavern.osome.iu.edu/jobs/2021-04-26/4648001e-0b95-427a-af4a-b1bb2f240e79/",
+  "status_url": "https://tavern.osome.iu.edu/jobs/2021-04-26/4648001e-0b95-427a-af4a-b1bb2f240e79/output.log"
+}
+
+Data for #whatsapp in December 2020
+{
+  "job_id": "2d96242c-bc50-4043-b211-a55c5d5a3253",
+  "query_params": {
+    "_job_end": "2021-04-26T09:07:02.227785",
+    "_job_start": "2021-04-26T08:58:14.275989",
+    "email": "faisna@iu.edu",
+    "end": "2020-12-31T23:59",
+    "label": "#Whatsapp-Dec2020",
+    "output": "tweet-content",
+    "q": "#whatsapp",
+    "qtype": "meme",
+    "remote_ip": [
+      "68.45.64.189"
+    ],
+    "start": "2020-12-01T00:01",
+    "tweets_per_file": 1000000
+  },
+  "result_url": "https://tavern.osome.iu.edu/jobs/2021-04-26/2d96242c-bc50-4043-b211-a55c5d5a3253/",
+  "status_url": "https://tavern.osome.iu.edu/jobs/2021-04-26/2d96242c-bc50-4043-b211-a55c5d5a3253/output.log"
+}
